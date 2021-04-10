@@ -18,18 +18,31 @@
       <a class="navbar-brand" href="#">
         <i class="fa fa-sun-o"></i><strong>WEATHER OUTLOOK</strong>
       </a>
+      
       <span id="date" class="lead">12:00pm April 9, 2021</span>
     </div>
-  </nav>
-</nav>
-</div> 
-<!-- main weather display -->
-<h1>Current Location:</h1>
+  
+  <!--city input form-->
+    <div class="card-body">
+      <form id="city-form">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <label for="city-name"> Search for City</label>
+      <input type="text" class="form-input" name="city-name" placeholder="Enter City" />
+    </div>
+    <button id="search-Button" class="btn btn-block btn-danger">Search</button>
+  <div>
+  </form>
+
+
+
+<!--weather displays-->
+
 <div class="container">
   <div class="row">
     <div class="col-8 weather mx-auto">
       <div class="weather-head">
-        <h1 id="location" class="text-center display-4">Philadelphia, US</h1>
+        <h1 id="location" class="text-center display-4">Current Location:</h1>
         <div id="temperature" class="text-center col-6">76
           <i id="icon-desc" class="wi wi-day-sunny text-center"></i>
         </div>
@@ -56,25 +69,21 @@
 
 <!--Weather body Data-->
 <div class="row">
-  <div class="humidity col-4 text-center">
+  <div class="humidity-data col-4 text-center">
     75%
   </div>
-  <div class="Wind col-4 text-center">
+  <div class="Wind-data col-4 text-center">
     3.4m/h
   </div>
-  <div class="UV-Index col-4 text-center">
+  <div class="UV-Index-data col-4 text-center">
     90&deg;
   </div>
 
-<div>
-  <div class="container">
-  <form autocomplete="off" action="/action_page.php">
-  <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="text" name="myCity" placeholder="City">
-  </div>
-  <input type="submit">
-</form>
-</div>
 
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="script.js"></script>
+
 </body>
+  
+</html>
