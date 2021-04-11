@@ -1,53 +1,48 @@
-// Making sure my console is working correctly: logging cities
-var cities= ["boston, philadelphia, new york"]
-console.log(cities)
+var button = document.querySelector('.button')
+var inputValue = document.querySelector('.inputValue')
+var cityname = document.querySelector('.name');
+var desc = document.querySelector('.desc');
+var temp = document.querySelector('.temp');
+var humidity = document.querySelector('.humidity')
+var wind = document.querySelector('.wind')
+var UVindex = document.querySelector('.UVindex')
 
-//I want to grab that value and store it
-var formEl = $('#city-form');
-var CityEl = $('input[name="city-name"]');
+//simplified way to have the data pop up from 
+button.addEventListener('click', function(){
+  fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&appid=2837134d6be430b022aba1c0c2a00433')
+.then(Response => Response.json())
+.then(data => {
+  var nameValue = data['name'];
+  var tempValue = data['main']['temp'];
+  var descValue = data['weather'][0]['description'];
+  var humidValue = data['main']['humidity'];
+  var windValue = data['wind']['speed']
+  var lonValue = data['coord']['lon']
+  var latValue = data['coord']['lat']
 
-function handleFormSubmit(event) {
-  // Prevent the default behavior
-  event.preventDefault();
-  console.log(CityEl.val());
+ localStorage.setItem('latitude', latValue)
+ localStorage.setItem('longitude', lonValue)
 
-function getApi() {
-  // fetch request gets a list of all the repos for the node.js organization
-  var requestUrl = 'https://http://api.openweathermap.org/data/2.5/weather?q=london&appid=2837134d6be430b022aba1c0c2a00433';
+  cityname.innerHTML = nameValue;
+  temp.innerHTML = tempValue
+  desc.innerHTML = descValue;
+  humidity.innerHTML =humidValue;
+  wind.innerHTML =windValue;
+})
+//i am calling another fetch for the 5 day forecast
+.then(() => {
+  fetchApi1()
+})
+.catch(err => alert("Wrong city Name!"))
 
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data)
-      // //Loop over the data to generate a table, each table row will have a link to the repo url
-      // for (var i = 0; i < data.length; i++) {
-      //   // Creating elements, tablerow, tabledata, and anchor
-      //   var createTableRow = document.createElement('tr');
-      //   var tableData = document.createElement('td');
-      //   var link = document.createElement('a');
+})
+//this is actually call for the uv and the five day forecast
+function fetchApi1() {
+  var latitude = localStorage.getItem('latitude')
+  var longitude = localStorage.getItem('longitude')
 
-      //   // Setting the text of link and the href of the link
-      //   link.textContent = data[i].html_url;
-      //   link.href = data[i].html_url;
+fetch('https://api.openweathermap.org/data/2.5/forecast?q=&appid=boston&appid=2837134d6be430b022aba1c0c2a00433')
+.then(Response => Response.json())
+.then(data => console.log(data))
 
-      //   // Appending the link to the tabledata and then appending the tabledata to the tablerow
-      //   // The tablerow then gets appended to the tablebody
-      //   tableData.appendChild(link);
-      //   createTableRow.appendChild(tableData);
-      //   tableBody.appendChild(createTableRow);
-
-        getApi()
-      }
-    );
-    
 }
-}
-
-
-
-
-formEl.on('submit', handleFormSubmit);
-
-
