@@ -41,8 +41,8 @@ function fetchApi1() {
   var latitude = localStorage.getItem('latitude')
   var longitude = localStorage.getItem('longitude')
 
-fetch('https://api.openweathermap.org/data/2.5/forecast?q=&appid=boston&appid=2837134d6be430b022aba1c0c2a00433')
+fetch('https://api.openweathermap.org/data/2.5/forecast?q='+inputValue.value+'&appid=2837134d6be430b022aba1c0c2a00433')
 .then(Response => Response.json())
-.then(data => console.log(data))
-
+.then(data => {
+})
 }
