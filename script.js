@@ -44,16 +44,12 @@ function fetchApi1() {
 
   //I want to display the same values above for my 5 day forecast.
   //temperature, 
-}
+
   //this api call works
   fetch('https://api.openweathermap.org/data/2.5/forecast?q='+inputValue.value+'&appid=2837134d6be430b022aba1c0c2a00433')
   .then(Response => Response.json())
   //this data shows in the console
   .then(data => console.log(data))
-  .then(data => {
-    var desctable = data['weather']['description'];
-    desc.innerHTML = desctable;
-  }
-);
   
+  }
   
