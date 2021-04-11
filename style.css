@@ -6,22 +6,20 @@
 
 body{
   font-family: 'Times New Roman', Times, serif;
-  background-color: white;
 }
 
 .input{
   text-align: center;
   margin: 100px 0;
-  border: tomato;
 }
 
 input[type="text"]{
   height: 50px;
   width: 600px;
-  background-color:white;
+  background-color: bisque;
   font-weight: bold;
   font-size: 20px;
-  border:tomato;
+  border: none;
   border: radius 2px;
   padding-top: 10px;
   padding-bottom: 2px;
@@ -47,10 +45,9 @@ input[type="submit"]{
   margin: auto;
   display:flexbox;
   border: 3px solid blue; 
-  background-color: orangered;
+  background-color: cornflowerblue;
   border-radius: 3px;
   text-align: center;
-  
 }  
 
 .navbar {
