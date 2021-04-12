@@ -18,11 +18,12 @@
     <a class="navbar-brand" href="#">
       <i class="fa fa-sun-o"></i><strong>WEATHER OUTLOOK</strong>
     </a>
-    <script
+    <p id="currentDay"></p>
+  </header>
+  <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
     ></script>
-    <span id="date" class="lead">12:00pm April 9, 2021</span>
   </div>
 
   <div class="input">
@@ -49,11 +50,11 @@
 
 <h3><strong> 5 DAY OUTLOOK</strong></h3>
 <table id="forecastTable">
-  <thead>
-    <th>CityName</th>
-    <th>Description</th>
-    <th>Temperature</th>
-    <th>Humidity</th>
+  <thead id="forecastrows">
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
   </thead>
   <tbody id="forecastBody"></tbody>
 </table>
