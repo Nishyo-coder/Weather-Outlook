@@ -55,13 +55,17 @@ function fetchApi1() {
   .then(Response => Response.json())
   //this data shows in the console
   .then(data => {
-    //list first five days from array of 40
+    //list first five days from array
     for (let index = 1; index < 6; index++) {
-      console.log(data.list[dt])
+      console.log(data.list[index])
 
-      var testDiv = document.createElement('div')
-    testDiv.innerHTML = `<p> DAY ${(data.index)}</p>`
-    document.getElementById('forecastTable').appendChild(testDiv)
+      var forecastTable = document.createElement('forecastTable')
+    forecastTable.innerHTML = `<p> DAY ${(data.daily)}</p>`
+    document.getElementById('forecastTable').appendChild(forecastTable)
+
+    var forecastdayone = document.createElement('dayone')
+    forecastdayone.innerHTML = `<p> Outlook ${(data.daily[1])}</p>`
+    document.getElementById('tdata').appendChild(forecastdayone)
     }
 
     console.log(data)
